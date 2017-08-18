@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Détail</title>
+</head>
+<body>
+<a href="{% url "liste_personne" %}">Liste des Personnes</a>
+<a href="{% url "nouveau_personne" %}">Nouvel Personne</a>
+
+<ul>
+    <li>Nom : {{ personne.nom }}</li>
+    <li>Prenom : {{ personne.prenom }}</li>
+    <li>Nombre de Modif : {{ personne.nb_modif|default:0 }}</li>
+
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Personnes</title>
+</head>
+<body>
+    <div>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                   <li{% if message.tags %} class="{{ message.tags }}"{% endif %}> Message :{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+<a href="{% url "nouveau_personne" %}">Nouvel Personne</a>
+  <ul>
+{% for personne in personnes %}
+
+        <li>
+            {{ personne.nom }} {{ personne.prenom }}  | <a href="{% url "update_personne" personne.id %}"> Mofidier</a> |
+            <a href="{% url "supprimer_personne" personne.id %}">Supprimer</a> | <a href="{% url "detail_personne" personne.id %}">Voir</a>
+
+        </li>
+        {% empty %}
+        <li>Pas de Personne à Affichier</li>
+
+{% endfor %}
+   </ul>
+
+</body>
+</html>
