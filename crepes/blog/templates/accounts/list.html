@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste User</title>
+</head>
+<body>
+
+     <ul>
+{% for user in users %}
+
+        <li>
+            {{ user.username }}
+        </li>
+        {% empty %}
+        <li>Pas de Personne à Affichier</li>
+
+{% endfor %}
+   </ul>
+
+</body>
+</html>

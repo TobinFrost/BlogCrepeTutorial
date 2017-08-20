@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'stats'
+    'stats',
+    'accounts',
 )
 
 # MIDDLEWARE_CLASSES = (
@@ -66,6 +67,10 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'crepes.urls'
 
 WSGI_APPLICATION = 'crepes.wsgi.application'
+
+
+LOGIN_REDIRECT_URL = '/accounts/'
+
 
 
 # Database

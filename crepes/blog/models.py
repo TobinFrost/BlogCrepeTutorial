@@ -63,7 +63,7 @@ class MiniURL(models.Model):
 class Personne(models.Model):
     nom = models.CharField(max_length=50,verbose_name="Nom")
     prenom =  models.CharField(max_length=60,verbose_name="Prenom")
-    nb_modif = models.IntegerField(verbose_name="Nombre de Modification",null=True)
+    nb_modif = models.IntegerField(verbose_name="Nombre de Modification",null=True, default=0)
 
     def __unicode__(self):
         return u"[{0}] {1}".format(self.prenom, self.nom)

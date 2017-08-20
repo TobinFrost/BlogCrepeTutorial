@@ -84,6 +84,7 @@ class LireArticleView(DetailView):
         article.save()
         return article
 
+
 class PersonneDetailView(DetailView):
     model = Personne
     context_object_name = 'personne'
@@ -92,13 +93,15 @@ class PersonneDetailView(DetailView):
 
 def liste_personne(request):
     personnes = Personne.objects.order_by("nom")
-    return render(request,'personne/liste.html',locals())
+    return render(request, 'personne/liste.html', locals())
+
 
 class PersonneCreate(CreateView):
     model = Personne
     template_name = 'personne/nouveau.html'
     form_class = PersonneForm
     success_url = reverse_lazy(liste_personne)
+
 
 class PersonneUpdate(UpdateView):
     model = Personne
@@ -114,7 +117,8 @@ class PersonneUpdate(UpdateView):
     def form_valid(self, form):
         self.object = form.save()
         personne = super(PersonneUpdate, self).get_object()
-        personne.nb_modif += 1
+        increment = 1
+        personne.nb_modif += increment
         personne.save()
 
         messages.success(self.request, "Votre profil a été mis à jour avec succès.", extra_tags="alert-warning alert")

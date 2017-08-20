@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Crêpe Bretonne {% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <h1>Crêpes-bretonnes.com</h1>
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">logout</a> | <a href="{% url 'profile' user.profile.slug %}">Profile</a>
+      {% else %}
+        <a href="{% url 'login' %}">login</a> / <a href="{% url 'signup' %}">signup</a>
+      {% endif %}
+      <hr>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+</html>
